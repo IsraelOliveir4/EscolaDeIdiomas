@@ -1,9 +1,11 @@
 package com.escolaidiomas.backend.model;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Aluno {
@@ -16,6 +18,7 @@ public class Aluno {
     private String email;
     private String telefone;
     private String cpf;
+    private LocalDate dataNascimento;
 
     public Long getId() {
         return id;
@@ -55,6 +58,14 @@ public class Aluno {
     
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 }
 

@@ -10,5 +10,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> {
+
     boolean existsByProfessorAndDataHora(Professor professor, LocalDateTime dataHora);
+
+    long countByProfessorAndDataHoraBetween(Professor professor, LocalDateTime start, LocalDateTime end);
 }
