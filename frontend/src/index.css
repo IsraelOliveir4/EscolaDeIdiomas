@@ -1,0 +1,141 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  display: flex;
+  height: 100vh;
+}
+
+/* Container Principal */
+.app-container {
+  display: flex;
+  width: 100%;
+}
+
+/* Sidebar (barra lateral) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0 10px 10px 0;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 15px 0;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+  background-color: #34495e;
+}
+
+/* Área de Conteúdo */
+.content {
+  margin-left: 250px;
+  padding: 20px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+/* Estilo para Cabeçalhos */
+h1, h2, h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+/* Estilização do Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+input, select, button {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+input[type="date"],
+input[type="time"],
+input[type="text"],
+select {
+  width: 100%;
+}
+
+button {
+  background-color: #2c3e50;
+  color: white;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #34495e;
+}
+
+/* Mensagens de sucesso e erro */
+.mensagem {
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.mensagem.sucesso {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.mensagem.erro {
+  background-color: #e74c3c;
+  color: white;
+}
