@@ -1,25 +1,20 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
-import CadastroEstudantes from './pages/CadastroEstudante';
-import CadastroProfessores from './pages/CadastrosProfessores';
-import CadastroAgendamentos from './pages/CadastroAgendamentos';
-import Sidebar from './components/sidebar';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import GestaoProfessores from "./pages/GestaoProfessores";
+import GestaoEstudantes from "./pages/GestaoEstudantes";
+import GestaoAgendamentos from "./pages/GestaoAgendamentos";
 
-const App = () => {
+function App() {
   return (
     <Router>
-      <Sidebar />
-      <div className="content">
-        <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/cadastro-estudantes" element={<CadastroEstudantes />} />
-          <Route path="/cadastro-professores" element={<CadastroProfessores />} />
-          <Route path="/cadastro-agendamentos" element={<CadastroAgendamentos />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/professores" element={<GestaoProfessores />} />
+        <Route path="/alunos" element={<GestaoEstudantes />} />
+        <Route path="/agendamentos" element={<GestaoAgendamentos />} />
+      </Routes>
     </Router>
   );
-};
+}
 
 export default App;

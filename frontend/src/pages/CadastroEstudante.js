@@ -1,7 +1,8 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
+
+import { criarEstudante } from '../services/estudanteService';
 
 const CadastroEstudante = () => {
   const validationSchema = Yup.object({
@@ -13,13 +14,19 @@ const CadastroEstudante = () => {
     email: Yup.string().email('Email inválido').required('E-mail é obrigatório'),
   });
 
-  const handleSubmit = (values) => {
-    axios.post('/api/estudantes', values)
+  const handleSubmit = (values, { resetForm }) => {
+    criarEstudante(values)
       .then(response => {
-        alert('Estudante cadastrado com sucesso!');
+        if (response.success) {
+          alert('Estudante cadastrado com sucesso!');
+          resetForm(); // Limpa o formulário após sucesso
+        } else {
+          alert('Erro ao cadastrar estudante: ' + (response.error?.mensagem || response.error));
+        }
       })
       .catch(error => {
         console.error('Erro ao cadastrar estudante:', error);
+        alert('Erro ao cadastrar estudante!');
       });
   };
 
@@ -40,39 +47,39 @@ const CadastroEstudante = () => {
       >
         <Form>
           <div>
-            <label>CPF:</label>
+            <label>CPF *</label>
             <Field name="cpf" />
-            <ErrorMessage name="cpf" component="div" />
+            <ErrorMessage name="cpf" component="div" style={{ color: 'red' }} />
           </div>
 
           <div>
-            <label>Nome:</label>
+            <label>Nome *</label>
             <Field name="nome" />
-            <ErrorMessage name="nome" component="div" />
+            <ErrorMessage name="nome" component="div" style={{ color: 'red' }} />
           </div>
 
           <div>
-            <label>Sobrenome:</label>
+            <label>Sobrenome *</label>
             <Field name="sobrenome" />
-            <ErrorMessage name="sobrenome" component="div" />
+            <ErrorMessage name="sobrenome" component="div" style={{ color: 'red' }} />
           </div>
 
           <div>
-            <label>Telefone:</label>
+            <label>Telefone *</label>
             <Field name="telefone" />
-            <ErrorMessage name="telefone" component="div" />
+            <ErrorMessage name="telefone" component="div" style={{ color: 'red' }} />
           </div>
 
           <div>
-            <label>WhatsApp:</label>
+            <label>WhatsApp *</label>
             <Field name="whatsapp" />
-            <ErrorMessage name="whatsapp" component="div" />
+            <ErrorMessage name="whatsapp" component="div" style={{ color: 'red' }} />
           </div>
 
           <div>
-            <label>E-mail:</label>
+            <label>E-mail *</label>
             <Field name="email" />
-            <ErrorMessage name="email" component="div" />
+            <ErrorMessage name="email" component="div" style={{ color: 'red' }} />
           </div>
 
           <button type="submit">Cadastrar</button>

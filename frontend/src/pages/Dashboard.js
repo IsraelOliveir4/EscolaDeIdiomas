@@ -1,44 +1,62 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import ModalAcesso from "../components/ModalAcesso";
 
-const Dashboard = () => {
-  const [aulas, setAulas] = useState([]);
-  const [historico, setHistorico] = useState([]);
-
-  useEffect(() => {
-    // Carregar as aulas do dia e histórico do backend
-    axios.get('/api/aulas') // Supondo que o backend tenha esse endpoint
-      .then(response => {
-        setAulas(response.data.aulas);
-        setHistorico(response.data.historico);
-      })
-      .catch(error => {
-        console.error('Erro ao carregar as aulas:', error);
-      });
-  }, []);
+function Dashboard() {
+  const modais = [
+    { nome: "Gestão de estudantes", caminho: "/GestaoEstudantes" },
+    { nome: "Gestão de professores", caminho: "/GestaoProfessores" },
+    { nome: "Gestão de agendamentos", caminho: "/GestaoAgendamentos" },
+  ];
 
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <h2>Aulas do Dia</h2>
-      <ul>
-        {aulas.map(aula => (
-          <li key={aula.id}>
-            {aula.data} - {aula.hora} - {aula.estudante.nome}
-          </li>
-        ))}
-      </ul>
+    <div
+      style={{
+        minHeight: "100vh",
+        width: "100%", // O ajuste importante está aqui
+        display: "flex",
+        flexDirection: "column",
+        background: "#f8fafc",
+        margin: 0,
+        padding: 0,
+        boxSizing: "border-box",
+      }}
+    >
+      <header
+        style={{
+          background: "#2563eb",
+          color: "#fff",
+          padding: "16px 32px",
+          fontSize: "1.8rem",
+          fontWeight: "bold",
+          width: "100%",
+          boxSizing: "border-box",
+        }}
+      >
+        Bem-vindo
+      </header>
 
-      <h2>Histórico de Aulas</h2>
-      <ul>
-        {historico.map(aula => (
-          <li key={aula.id}>
-            {aula.data} - {aula.hora} - {aula.estudante.nome}
-          </li>
+      <div
+        style={{
+          flexGrow: 1,
+          width: "100%", // Garantindo largura completa
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "32px",
+          padding: "32px",
+          flexWrap: "wrap",
+          boxSizing: "border-box",
+        }}
+      >
+        {modais.map((modal) => (
+          <ModalAcesso
+            key={modal.nome}
+            nome={modal.nome}
+            caminho={modal.caminho}
+          />
         ))}
-      </ul>
+      </div>
     </div>
   );
-};
+}
 
 export default Dashboard;

@@ -106,6 +106,4 @@ Frontend: http://localhost:3000
 
 Backend: http://localhost:8080/api
 
-PGAdmin: http://localhost:5050 (admin@admin.com | 123456)
-
 Documentação Swagger: http://localhost:8080/swagger-ui.html
