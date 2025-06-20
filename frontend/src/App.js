@@ -9,9 +9,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/professores" element={<GestaoProfessores />} />
-        <Route path="/alunos" element={<GestaoEstudantes />} />
-        <Route path="/agendamentos" element={<GestaoAgendamentos />} />
+        <Route path="/GestaoProfessores" element={<GestaoProfessores />} />
+        <Route path="/GestaoEstudantes" element={<GestaoEstudantes />} />
+        <Route path="/GestaoAgendamentos" element={<GestaoAgendamentos />} />
       </Routes>
     </Router>
   );

@@ -6,8 +6,8 @@ function ModalAcesso({ nome, caminho }) {
   return (
     <div
       style={{
-        width: "320px",
-        height: "240px",
+        width: "410px",
+        height: "280px",        
         background: "#fff",
         borderRadius: "16px",
         boxShadow: "0 6px 12px rgba(0,0,0,0.1)",
